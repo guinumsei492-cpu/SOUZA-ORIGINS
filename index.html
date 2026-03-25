@@ -3,281 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOUZA SUPPLY | Official Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>SOUZA SUPPLY | THE NEW ERA</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;500;900&display=swap');
+
         :root {
-            --bg: #050505;
-            --card-bg: #0c0c0c;
-            --accent: #ffffff;
-            --text-gray: #666;
+            --primary: #ffffff;
+            --bg: #000000;
+            --card: #0a0a0a;
+            --accent: #ff0000; /* Cor de detalhe (opcional) */
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
 
         body { 
             background-color: var(--bg); 
-            color: white; 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            padding: 0; 
+            color: var(--primary); 
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Header Estilo Grife */
-        header { 
-            padding: 60px 20px; 
-            text-align: center; 
-            border-bottom: 1px solid #111;
-        }
-        
-        h1 { 
-            font-family: 'Bebas Neue', cursive; 
-            letter-spacing: 15px; 
-            font-size: clamp(40px, 10vw, 80px); 
-            margin: 0; 
-            text-transform: uppercase;
+        /* Cursor Customizado Pesado */
+        #cursor {
+            width: 20px; height: 20px; background: #fff; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 9999;
+            mix-blend-mode: difference; transition: transform 0.2s;
         }
 
-        .subtitle { 
-            color: var(--text-gray); 
-            letter-spacing: 6px; 
-            font-size: 11px; 
-            text-transform: uppercase; 
-            margin-top: 10px; 
-        }
-
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
-        }
-
-        /* Títulos de Seção */
-        .section-title { 
-            font-family: 'Bebas Neue'; 
-            font-size: 32px; 
-            margin: 60px 0 30px; 
-            letter-spacing: 3px;
+        /* Header Estilo High-End */
+        header {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-        }
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #222;
-            margin-left: 20px;
+            text-align: center;
+            background: radial-gradient(circle, #111 0%, #000 100%);
         }
 
-        /* Grid de Produtos */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 40px; 
+        h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(40px, 12vw, 120px);
+            font-weight: 700;
+            letter-spacing: -5px;
+            line-height: 0.9;
+            text-transform: uppercase;
         }
 
-        .card { 
-            background: var(--card-bg); 
-            border: 1px solid #151515; 
-            padding: 20px; 
-            border-radius: 2px; 
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-
-        .card:hover { 
-            border-color: var(--accent); 
-            transform: translateY(-10px); 
-        }
-
-        /* Efeito na Imagem */
-        .img-container {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            background: #111;
-            margin-bottom: 20px;
-        }
-
-        .card img { 
-            width: 100%; 
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(30%); 
-            transition: 0.6s;
-        }
-
-        .card:hover img { 
-            filter: grayscale(0%); 
-            transform: scale(1.1);
-        }
-
-        .card h3 { 
-            font-family: 'Bebas Neue'; 
-            font-size: 24px; 
-            margin: 0 0 10px; 
-            letter-spacing: 1px; 
-        }
-
-        .card p { 
-            color: var(--text-gray); 
-            font-size: 13px; 
-            margin-bottom: 20px; 
-            line-height: 1.5;
-            height: 40px;
-        }
-
-        .price { 
-            font-family: 'Bebas Neue'; 
-            font-size: 30px; 
-            margin-bottom: 20px; 
-        }
-
-        /* Custom Select */
-        select { 
-            background: #000; 
-            color: white; 
-            border: 1px solid #333; 
-            padding: 12px; 
-            width: 100%; 
-            margin-bottom: 20px; 
-            cursor: pointer;
-            font-size: 14px;
-            outline: none;
-        }
-
-        /* Botão de Compra */
-        .btn-buy { 
-            background: var(--accent); 
-            color: black; 
-            text-decoration: none; 
-            display: block; 
-            text-align: center; 
-            padding: 18px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-size: 14px; 
-            transition: 0.3s; 
-        }
-
-        .btn-buy:hover { 
-            background: #ddd; 
-            box-shadow: 0 10px 20px rgba(255,255,255,0.1); 
-        }
-
-        .badge {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            background: white;
-            color: black;
-            padding: 5px 12px;
-            font-weight: bold;
+        .scroll-down {
+            margin-top: 50px;
             font-size: 10px;
-            z-index: 2;
+            letter-spacing: 5px;
             text-transform: uppercase;
+            opacity: 0.5;
+            animation: bounce 2s infinite;
         }
 
-        footer { 
-            text-align: center; 
-            padding: 100px 20px 40px; 
-            color: #222; 
-            font-size: 10px; 
-            letter-spacing: 5px; 
-            text-transform: uppercase;
+        /* Seção de Produtos */
+        .container { max-width: 1400px; margin: 0 auto; padding: 100px 20px; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
         }
 
-        /* Estilo para telemóvel */
-        @media (max-width: 600px) {
-            .grid { grid-template-columns: 1fr; }
-            h1 { font-size: 45px; }
-            .img-container { height: 350px; }
+        .product-card {
+            position: relative;
+            background: var(--card);
+            height: 600px;
+            overflow: hidden;
+            border: 1px solid #111;
+            transition: 0.5s ease;
+        }
+
+        .product-card:hover { border-color: #333; }
+
+        .product-card img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+            opacity: 0.7;
+        }
+
+        .product-card:hover img { transform: scale(1.1); opacity: 1; }
+
+        .info {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            transform: translateY(20px);
+            transition: 0.5s;
+        }
+
+        .product-card:hover .info { transform: translateY(0); }
+
+        .category { font-size: 10px; letter-spacing: 3px; color: #666; text-transform: uppercase; margin-bottom: 10px; }
+        .name { font-family: 'Syncopate'; font-size: 24px; margin-bottom: 15px; }
+        .price { font-size: 20px; font-weight: 300; margin-bottom: 25px; display: block;}
+
+        /* Botões Estilo Shopify Premium */
+        .buy-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover { background: #000; color: #fff; border: 1px solid #fff; }
+
+        /* Footer */
+        footer { padding: 100px 20px; text-align: center; border-top: 1px solid #111; color: #222; font-size: 12px; letter-spacing: 10px; }
+
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .product-card { height: 500px; }
         }
     </style>
 </head>
 <body>
 
+<div id="cursor"></div>
+
 <header>
-    <h1>SOUZA SUPPLY</h1>
-    <div class="subtitle">PREMIUM DROP 01 / BRAZILIAN DRILL</div>
+    <div class="subtitle" style="letter-spacing: 10px; color: #444; margin-bottom: 20px;">EST. 2026</div>
+    <h1>SOUZA<br>SUPPLY</h1>
+    <div class="scroll-down">Scroll to Drop</div>
 </header>
 
 <div class="container">
-    
-    <div class="section-title">EXCLUSIVE SETS</div>
-    <div class="grid">
-        <div class="card">
-            <div class="badge">Limited</div>
-            <div class="img-container">
-                <img src="https://cf.shopee.com.br/file/br-11134207-7qukw-ljm3o2z8f7mf9d" alt="Conjunto Syna">
+    <div class="product-grid">
+        
+        <!-- Produto 1 -->
+        <div class="product-card">
+            <img src="https://cf.shopee.com.br/file/br-11134207-7qukw-ljm3o2z8f7mf9d" alt="Kit Syna">
+            <div class="info">
+                <div class="category">Sets / Tracksuits</div>
+                <div class="name">SYNA WORLD SUMMER KIT</div>
+                <span class="price">R$ 289,90</span>
+                <a href="https://wa.me/557182768278?text=Quero%20o%20Kit%20Syna" class="buy-btn">Get Piece</a>
             </div>
-            <h3>KIT SYNA WORLD SUMMER</h3>
-            <p>Camiseta + Bermuda em moletom pesado. Estética gringo com logo bordado em alta densidade.</p>
-            <div class="price">R$ 289,90</div>
-            <select id="size-syna">
-                <option value="P">Tamanho P</option>
-                <option value="M">Tamanho M</option>
-                <option value="G">Tamanho G</option>
-                <option value="GG">Tamanho GG</option>
-            </select>
-            <a href="javascript:void(0)" onclick="buy('KIT SYNA WORLD', 'size-syna')" class="btn-buy">Reservar Agora</a>
         </div>
-    </div>
 
-    <div class="section-title">ESSENTIAL TOPS</div>
-    <div class="grid">
-        <div class="card">
-            <div class="img-container">
-                <img src="https://cf.shopee.com.br/file/br-11134207-7qukw-ljm3o3288888f1" alt="T-Shirt Blessed">
+        <!-- Produto 2 -->
+        <div class="product-card">
+            <img src="https://cf.shopee.com.br/file/br-11134207-7qukw-ljm3o3288888f1" alt="Blessed T-Shirt">
+            <div class="info">
+                <div class="category">Tops / Oversized</div>
+                <div class="name">BLESSED ANGELS TEE</div>
+                <span class="price">R$ 149,90</span>
+                <a href="https://wa.me/557182768278?text=Quero%20a%20Blessed%20Angels" class="buy-btn">Get Piece</a>
             </div>
-            <h3>T-SHIRT BLESSED ANGELS</h3>
-            <p>Oversized fit em algodão 30.1 penteado. Estampa silk screen HD nas costas.</p>
-            <div class="price">R$ 149,90</div>
-            <select id="size-blessed">
-                <option value="P">Tamanho P</option>
-                <option value="M">Tamanho M</option>
-                <option value="G">Tamanho G</option>
-                <option value="GG">Tamanho GG</option>
-            </select>
-            <a href="javascript:void(0)" onclick="buy('T-SHIRT BLESSED ANGELS', 'size-blessed')" class="btn-buy">Reservar Agora</a>
         </div>
-    </div>
 
-    <div class="section-title">STREET BOTTOMS</div>
-    <div class="grid">
-        <div class="card">
-            <div class="img-container">
-                <img src="https://cf.shopee.com.br/file/br-11134207-7r98o-lzp6b66t6666e1" alt="Jeans Baggy">
+        <!-- Produto 3 -->
+        <div class="product-card">
+            <img src="https://cf.shopee.com.br/file/br-11134207-7r98o-lzp6b66t6666e1" alt="Baggy Jeans">
+            <div class="info">
+                <div class="category">Bottoms / Baggy</div>
+                <div class="name">BAGGY NIGHT DENIM</div>
+                <span class="price">R$ 219,90</span>
+                <a href="https://wa.me/557182768278?text=Quero%20a%20Calça%20Baggy" class="buy-btn">Get Piece</a>
             </div>
-            <h3>JEANS BAGGY NIGHT ESTONADO</h3>
-            <p>Corte balão ultra largo. Denim premium com lavagem industrial preto estonado.</p>
-            <div class="price">R$ 219,90</div>
-            <select id="size-jeans">
-                <option value="38">Tamanho 38</option>
-                <option value="40">Tamanho 40</option>
-                <option value="42">Tamanho 42</option>
-                <option value="44">Tamanho 44</option>
-                <option value="46">Tamanho 46</option>
-            </select>
-            <a href="javascript:void(0)" onclick="buy('JEANS BAGGY NIGHT', 'size-jeans')" class="btn-buy">Reservar Agora</a>
         </div>
-    </div>
 
+    </div>
 </div>
 
-<footer>
-    SOUZA SUPPLY &copy; 2026 | MADE IN BRAZIL | HIGH QUALITY GOODS
-</footer>
+<footer>SOUZA SUPPLY LIMITED EDITION</footer>
 
 <script>
-    function buy(produto, idSelect) {
-        const tam = document.getElementById(idSelect).value;
-        const msg = `Salve Souza! Quero garantir o drop: ${produto} no tamanho ${tam}.`;
-        const url = `https://wa.me/557182768278?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank');
-    }
+    // Script do Cursor Customizado
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(4)');
+        link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+    });
 </script>
 
 </body>
