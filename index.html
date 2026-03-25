@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOUZA SUPPLY | Streetwear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap');
+        
+        body { background-color: #050505; color: white; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        header { padding: 40px 20px; text-align: center; }
+        h1 { font-family: 'Bebas Neue', cursive; letter-spacing: 12px; font-size: 60px; margin: 0; }
+        .subtitle { color: #666; letter-spacing: 5px; font-size: 12px; text-transform: uppercase; margin-top: 10px; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        .section-title { font-family: 'Bebas Neue'; font-size: 32px; border-bottom: 1px solid #222; margin: 40px 0 20px; padding-bottom: 10px; letter-spacing: 2px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: #0c0c0c; border: 1px solid #1a1a1a; padding: 15px; border-radius: 4px; transition: 0.3s; position: relative; }
+        .card:hover { border-color: #fff; transform: translateY(-5px); }
+        .card img { width: 100%; border-radius: 2px; filter: grayscale(10%); }
+        
+        .card h3 { font-family: 'Bebas Neue'; font-size: 22px; margin: 15px 0 5px; letter-spacing: 1px; }
+        .card p { color: #555; font-size: 12px; margin-bottom: 15px; line-height: 1.4; }
+        .price { font-family: 'Bebas Neue'; font-size: 26px; margin-bottom: 15px; }
+        
+        select { background: #111; color: white; border: 1px solid #333; padding: 8px; width: 100%; margin-bottom: 15px; cursor: pointer; }
+        
+        .btn-buy { background: white; color: black; text-decoration: none; display: block; text-align: center; padding: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 13px; transition: 0.3s; }
+        .btn-buy:hover { background: #ccc; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
+
+        footer { text-align: center; padding: 60px 20px; color: #333; font-size: 10px; letter-spacing: 3px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SOUZA SUPPLY</h1>
+    <div class="subtitle">Drop 01 / Essential Streetwear</div>
+</header>
+
+<div class="container">
+    <!-- CONJUNTOS -->
+    <div class="section-title">SETS (KITS)</div>
+    <div class="grid">
+        <div class="card">
+            <img src="https://cf.shopee.com.br/file/br-11134207-7qukw-ljm3o2z8f7mf9d" alt="Syna Kit">
+            <h3>KIT SYNA WORLD - TRACKSUIT</h3>
+            <p>Camiseta + Bermuda Moletom | Estilo Gringo Premium | Logo Bordado</p>
+            <div class="price">R$ 289,90</div>
+            <select id="size-syna">
+                <option>P</option><option>M</option><option>G</option><option>GG</option>
+            </select>
+            <a href="#" onclick="buy('KIT SYNA WORLD', 'size-syna')" class="btn-buy">Reservar Peça</a>
+        </div>
+    </div>
+
+    <!-- CAMISETAS -->
+    <div class="section-title">TOPS</div>
+    <div class="grid">
+        <div class="card">
+            <img src="https://cf.shopee.com.br/file/br-11134207-7qukw-ljm3o3288888f1" alt="Blessed Angels">
+            <h3>T-SHIRT BLESSED ANGELS</h3>
+            <p>100% Algodão Premium | High Definition Print | Oversized Fit</p>
+            <div class="price">R$ 149,90</div>
+            <select id="size-blessed">
+                <option>P</option><option>M</option><option>G</option><option>GG</option>
+            </select>
+            <a href="#" onclick="buy('T-SHIRT BLESSED ANGELS', 'size-blessed')" class="btn-buy">Reservar Peça</a>
+        </div>
+    </div>
+
+    <!-- CALÇAS -->
+    <div class="section-title">BOTTOMS</div>
+    <div class="grid">
+        <div class="card">
+            <img src="https://cf.shopee.com.br/file/br-11134207-7r98o-lzp6b66t6666e1" alt="Baggy Jeans">
+            <h3>JEANS BAGGY NIGHT ESTONADO</h3>
+            <p>Denim Original | Lavagem Estonada | Modelagem Larga</p>
+            <div class="price">R$ 219,90</div>
+            <select id="size-jeans">
+                <option>38</option><option>40</option><option>42</option><option>44</option><option>46</option>
+            </select>
+            <a href="#" onclick="buy('JEANS BAGGY NIGHT', 'size-jeans')" class="btn-buy">Reservar Peça</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    SOUZA SUPPLY INTERNATIONAL &copy; 2026 | SALVADOR - BRASIL
+</footer>
+
+<script>
+    function buy(produto, idSelect) {
+        const tam = document.getElementById(idSelect).value;
+        const msg = `Salve Souza! Quero garantir o drop: ${produto} no tamanho ${tam}.`;
+        const url = `https://wa.me/557182768278?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+    }
+</script>
+
+</body>
+</html>
